@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Visual Designer</title>
+  <meta name="description" content="Portfolio of a visual designer — branding, illustration, packaging, UI and more." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23ff5900'/><text y='68' x='50' text-anchor='middle' font-size='52'>✏️</text></svg>" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <nav class="nav__inner">
+      <a href="#work" class="nav__link">work</a>
+      <a href="#top" class="nav__logo" aria-label="Home">
+        <img src="assets/images/avatar.svg" alt="logo" />
+      </a>
+      <a href="#about" class="nav__link">about</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+      <div class="hero__doodle hero__doodle--tl" aria-hidden="true">✦</div>
+      <div class="hero__doodle hero__doodle--tr" aria-hidden="true">✷</div>
+      <div class="hero__doodle hero__doodle--bl" aria-hidden="true">✳</div>
+
+      <div class="hero__intro reveal">
+        <span class="hero__wave"><span class="hero__wave-hand">👋</span></span>
+        <!-- PLACEHOLDER: your name -->
+        <p class="hero__hi">Hi there, I am <span class="accent">Your&nbsp;Name</span></p>
+      </div>
+
+      <h1 class="hero__title reveal">
+        <span class="hero__title-line">A VISUAL</span>
+        <span class="hero__title-line">DESIGNER</span>
+      </h1>
+      <!-- PLACEHOLDER: your tagline -->
+      <p class="hero__sub reveal">who can <em class="accent scribble">actually draw</em>&nbsp;!</p>
+
+      <figure class="hero__art reveal">
+        <img src="assets/images/hero-illustration.svg" alt="Illustration of the designer at work" />
+      </figure>
+
+      <p class="hero__note reveal">MY SKETCHBOOK IS A LITTLE TOO MESSY FOR MOBILE AND NEEDS A DESKTOP FOR THE FULL EXPERIENCE</p>
+    </section>
+
+    <!-- ============ SNEAK PEEK MARQUEE ============ -->
+    <section class="peek" id="sneak-peek" aria-label="Glimpse of my work">
+      <div class="marquee" data-speed="0.6">
+        <div class="marquee__track">
+          <!-- PLACEHOLDER: swap images + tags with your own work snapshots -->
+          <figure class="peek__card"><img src="assets/images/sneak-1.svg" alt="Website UI work" /><figcaption class="tag">Website UI</figcaption></figure>
+          <figure class="peek__card"><img src="assets/images/sneak-2.svg" alt="Branding work" /><figcaption class="tag">Branding</figcaption></figure>
+          <figure class="peek__card"><img src="assets/images/sneak-3.svg" alt="Merch design work" /><figcaption class="tag">Merch Design</figcaption></figure>
+          <figure class="peek__card"><img src="assets/images/sneak-4.svg" alt="Packaging work" /><figcaption class="tag">Packaging</figcaption></figure>
+          <figure class="peek__card"><img src="assets/images/sneak-5.svg" alt="Ad campaign work" /><figcaption class="tag">Ad Campaign</figcaption></figure>
+          <figure class="peek__card"><img src="assets/images/sneak-6.svg" alt="Social media work" /><figcaption class="tag">Social Media Posts</figcaption></figure>
+          <figure class="peek__card"><img src="assets/images/sneak-7.svg" alt="Sneaker design work" /><figcaption class="tag">Sneaker Design</figcaption></figure>
+          <figure class="peek__card"><img src="assets/images/sneak-8.svg" alt="Storyboard work" /><figcaption class="tag">Storyboard</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS / ABILITY ============ -->
+    <section class="skills dotted" id="skills">
+      <h2 class="section-title reveal">WHAT I BRING<br class="br-mobile" /> TO THE TABLE</h2>
+      <p class="skills__sub reveal">Collecting skills like Pokémon cards so your project doesn't need <span class="accent scribble">five different people</span></p>
+
+      <ul class="skills__cloud reveal" role="list">
+        <!-- PLACEHOLDER: your skills -->
+        <li class="pill" style="--rot:-4deg">Visual Design</li>
+        <li class="pill" style="--rot:3deg">Illustration</li>
+        <li class="pill" style="--rot:-2deg">Storyboarding</li>
+        <li class="pill" style="--rot:5deg">Design Systems</li>
+        <li class="pill" style="--rot:-5deg">Animation</li>
+        <li class="pill" style="--rot:2deg">Branding</li>
+        <li class="pill" style="--rot:-3deg">User Interface</li>
+        <li class="pill" style="--rot:4deg">AI friendly designer</li>
+        <li class="pill" style="--rot:-2deg">Packaging</li>
+      </ul>
+    </section>
+
+    <!-- ============ WORK / DESIGN IN ACTION ============ -->
+    <section class="work dotted" id="work">
+      <h2 class="section-title reveal">DESIGN IN ACTION</h2>
+
+      <div class="work__stack">
+        <!-- PLACEHOLDER: Project 1 -->
+        <article class="project" style="--i:0">
+          <div class="project__media">
+            <img src="assets/images/project-1.svg" alt="Project One cover" />
+          </div>
+          <div class="project__info">
+            <span class="project__index">Project 1</span>
+            <h3 class="project__title">PROJECT ONE</h3>
+            <p class="project__desc">One or two sentences describing the project — what it was, what you did, and the impact it had.</p>
+            <ul class="project__tags" role="list">
+              <li class="tag">Tag One</li>
+              <li class="tag">Tag Two</li>
+            </ul>
+            <a class="btn btn--ghost" href="#" data-link="project1">view project <span class="btn__arrow">↗</span></a>
+          </div>
+        </article>
+
+        <!-- PLACEHOLDER: Project 2 -->
+        <article class="project" style="--i:1">
+          <div class="project__media">
+            <img src="assets/images/project-2.svg" alt="Project Two cover" />
+          </div>
+          <div class="project__info">
+            <span class="project__index">Project 2</span>
+            <h3 class="project__title">PROJECT TWO</h3>
+            <p class="project__desc">One or two sentences describing the project — what it was, what you did, and the impact it had.</p>
+            <ul class="project__tags" role="list">
+              <li class="tag">Tag One</li>
+              <li class="tag">Tag Two</li>
+            </ul>
+            <a class="btn btn--ghost" href="#" data-link="project2">view project <span class="btn__arrow">↗</span></a>
+          </div>
+        </article>
+
+        <!-- PLACEHOLDER: Project 3 -->
+        <article class="project" style="--i:2">
+          <div class="project__media">
+            <img src="assets/images/project-3.svg" alt="Project Three cover" />
+          </div>
+          <div class="project__info">
+            <span class="project__index">Project 3</span>
+            <h3 class="project__title">PROJECT THREE</h3>
+            <p class="project__desc">One or two sentences describing the project — what it was, what you did, and the impact it had.</p>
+            <ul class="project__tags" role="list">
+              <li class="tag">Tag One</li>
+              <li class="tag">Tag Two</li>
+            </ul>
+            <a class="btn btn--ghost" href="#" data-link="project3">view project <span class="btn__arrow">↗</span></a>
+          </div>
+        </article>
+
+        <!-- PLACEHOLDER: Project 4 -->
+        <article class="project" style="--i:3">
+          <div class="project__media">
+            <img src="assets/images/project-4.svg" alt="Project Four cover" />
+          </div>
+          <div class="project__info">
+            <span class="project__index">Project 4</span>
+            <h3 class="project__title">PROJECT FOUR</h3>
+            <p class="project__desc">One or two sentences describing the project — what it was, what you did, and the impact it had.</p>
+            <ul class="project__tags" role="list">
+              <li class="tag">Tag One</li>
+              <li class="tag">Tag Two</li>
+            </ul>
+            <a class="btn btn--ghost" href="#" data-link="project4">view project <span class="btn__arrow">↗</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="work__more reveal">
+        <a class="btn btn--big" href="#" data-link="otherWorks">CHECK OUT MY OTHER WORKS <span class="btn__arrow">↗</span></a>
+      </div>
+    </section>
+
+    <!-- ============ SKETCHBOOK / ART ============ -->
+    <section class="sketch" id="sketchbook">
+      <div class="sketch__inner">
+        <div class="sketch__text reveal">
+          <h2 class="section-title">FLIP THROUGH TO SEE <span class="accent">MY ILLUSTRATIONS</span></h2>
+          <p class="sketch__sub">More illustrations live on my art page.<br /><span class="sketch__ps">P.S. This portfolio is best viewed on desktop.</span></p>
+          <a class="btn btn--big" href="#" data-link="artPage">CHECK OUT MY ART PAGE <span class="btn__arrow">↗</span></a>
+        </div>
+        <figure class="sketch__art reveal">
+          <img src="assets/images/sketch-runner.svg" alt="Illustration" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ BRANDS ============ -->
+    <section class="brands" id="brands">
+      <p class="brands__label reveal">BRANDS I'VE WORKED WITH</p>
+      <div class="marquee" data-speed="0.4">
+        <div class="marquee__track marquee__track--brands">
+          <!-- PLACEHOLDER: brand logos -->
+          <img class="brands__logo" src="assets/images/brand-1.svg" alt="Brand 1" />
+          <img class="brands__logo" src="assets/images/brand-2.svg" alt="Brand 2" />
+          <img class="brands__logo" src="assets/images/brand-3.svg" alt="Brand 3" />
+          <img class="brands__logo" src="assets/images/brand-4.svg" alt="Brand 4" />
+          <img class="brands__logo" src="assets/images/brand-5.svg" alt="Brand 5" />
+          <img class="brands__logo" src="assets/images/brand-6.svg" alt="Brand 6" />
+          <img class="brands__logo" src="assets/images/brand-7.svg" alt="Brand 7" />
+          <img class="brands__logo" src="assets/images/brand-8.svg" alt="Brand 8" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+      <h2 class="section-title section-title--light reveal">SOMETHING ABOUT ME</h2>
+
+      <!-- PLACEHOLDER: your bio -->
+      <div class="about__bio reveal">
+        <p>I'm a Visual Designer who loves bringing ideas to life through illustration. My artistic foundation helps me create work that's not only functional, but also rich in personality, storytelling and craft.</p>
+        <p>3+ years of work experience across freelance, agency and in-house roles. Designed brands, campaigns, packaging, merchandise and digital experiences for clients big and small.</p>
+      </div>
+
+      <a class="btn btn--solid reveal" href="#" data-link="resume">📄 My Resume</a>
+
+      <div class="about__polaroids">
+        <!-- PLACEHOLDER: your photos + captions -->
+        <figure class="polaroid" style="--rot:-6deg">
+          <img src="assets/images/polaroid-1.svg" alt="Photo 1" />
+          <figcaption>A cat person</figcaption>
+        </figure>
+        <figure class="polaroid" style="--rot:3deg">
+          <img src="assets/images/polaroid-2.svg" alt="Photo 2" />
+          <figcaption>Love nature</figcaption>
+        </figure>
+        <figure class="polaroid" style="--rot:-2deg">
+          <img src="assets/images/polaroid-3.svg" alt="Photo 3" />
+          <figcaption>Hi, it's me :)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ CONNECT / FOOTER ============ -->
+    <section class="connect" id="connect">
+      <h2 class="section-title reveal">LET'S CONNECT</h2>
+      <div class="connect__links reveal">
+        <a class="btn btn--big" href="#" data-link="linkedin">LINKEDIN <span class="btn__arrow">↗</span></a>
+        <a class="btn btn--big" href="#" data-link="instagram">INSTAGRAM <span class="btn__arrow">↗</span></a>
+        <a class="btn btn--big" href="#" data-link="behance">BEHANCE <span class="btn__arrow">↗</span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="marquee" data-speed="0.5">
+      <div class="marquee__track marquee__track--footer" aria-hidden="true">
+        <span>LET'S WORK TOGETHER&nbsp;✦&nbsp;</span>
+        <span>LET'S WORK TOGETHER&nbsp;✦&nbsp;</span>
+        <span>LET'S WORK TOGETHER&nbsp;✦&nbsp;</span>
+        <span>LET'S WORK TOGETHER&nbsp;✦&nbsp;</span>
+      </div>
+    </div>
+    <p class="footer__note">© <span id="year"></span> — designed &amp; built with care</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
