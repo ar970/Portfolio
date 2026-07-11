@@ -29,7 +29,7 @@
 <body>
 
   <!-- custom cursor (desktop only, activated by JS) -->
-  <div id="cursor" aria-hidden="true"></div>
+  <div id="cursor" aria-hidden="true"><span id="cursor-label"></span></div>
 
   <!-- scroll progress line -->
   <div id="progress" aria-hidden="true"></div>
@@ -117,9 +117,15 @@
             <p class="hero__hi">there, I am <span class="accent">Archit</span></p>
           </div>
 
-          <h1 class="hero__title reveal">AN AI GENERALIST</h1>
+          <h1 class="hero__title">
+            <span class="w"><span style="--wi:0">AN</span></span>
+            <span class="w"><span style="--wi:1">AI</span></span>
+            <span class="w"><span style="--wi:2">GENERALIST</span></span>
+          </h1>
 
           <p class="hero__sub reveal">who <em class="accent scribble">actually builds</em> <span id="typewriter">things</span><span class="typewriter__caret">|</span></p>
+
+          <p class="hero__avail reveal"><span class="pulse" aria-hidden="true"></span> Available for new projects</p>
         </div>
 
         <!-- hand-coded doodle scene: Archit at his laptop -->
@@ -185,6 +191,21 @@
               <path d="M448 160 C449 166 451 168 456 170 C451 172 449 174 448 180 C447 174 445 172 440 170 C445 168 447 166 448 160 Z"/>
             </g>
           </svg>
+
+          <!-- rotating open-to-work stamp -->
+          <a class="stamp" href="#connect" aria-label="Open to work — let's connect">
+            <svg viewBox="0 0 120 120">
+              <defs>
+                <path id="stamp-circle" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/>
+              </defs>
+              <g class="stamp__spin">
+                <text font-size="12.5" letter-spacing="2.5" fill="#2a3132" font-weight="700" font-family="DM Sans, sans-serif">
+                  <textPath href="#stamp-circle">OPEN TO WORK ✦ LET'S BUILD ✦ </textPath>
+                </text>
+              </g>
+              <path d="M60 46 C62 56 65 59 74 62 C65 65 62 68 60 78 C58 68 55 65 46 62 C55 59 58 56 60 46 Z" fill="none" stroke="#ff5900" stroke-width="2.6" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </figure>
       </div>
 
@@ -257,6 +278,16 @@
 
         <h2 class="section-title reveal">WHAT I BRING<br class="br-mobile" /> TO THE TABLE</h2>
         <p class="skills__sub reveal">Collecting skills like Pokémon cards so your project doesn't need <span class="accent scribble">five different people</span></p>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats" aria-label="Numbers so far">
+      <div class="stats__row">
+        <div class="stat reveal"><span class="stat__num" data-count="5">0</span><span class="stat__label">AI PROJECTS</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="3">0</span><span class="stat__label">STARTUPS</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="10">0</span><span class="stat__label">AUTOMATIONS</span></div>
+        <div class="stat reveal"><span class="stat__num" data-count="4">0</span><span class="stat__label">CAMPAIGNS</span></div>
       </div>
     </section>
 
@@ -488,6 +519,13 @@
       </div>
     </section>
 
+    <!-- ============ DIVIDER BAND ============ -->
+    <div class="band marquee" data-speed="0.9" aria-hidden="true">
+      <div class="marquee__track band__track">
+        <span>AI WORKFLOWS&nbsp;✦&nbsp;AUTOMATION&nbsp;✦&nbsp;STARTUPS&nbsp;✦&nbsp;MARKETING&nbsp;✦&nbsp;DATA&nbsp;✦&nbsp;</span>
+      </div>
+    </div>
+
     <!-- ============ ABOUT ============ -->
     <section class="about" id="about">
       <span class="doodle doodle--light" style="top:7%; left:8%; width:52px" data-depth="4"><svg class="doodle__float"><use href="#d-coffee"/></svg></span>
@@ -629,6 +667,7 @@
         <span>LET'S WORK TOGETHER&nbsp;✦&nbsp;</span>
       </div>
     </div>
+    <p class="footer__note">Based in New Delhi, India · <span id="clock"></span> IST</p>
     <p class="footer__note">© <span id="year"></span> Archit Gupta — designed &amp; built with care</p>
   </footer>
 

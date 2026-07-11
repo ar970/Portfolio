@@ -150,6 +150,64 @@ if (!reducedMotion && window.matchMedia("(pointer: fine)").matches) {
   });
 }
 
+/* ---------- count-up stats ---------- */
+const statNums = document.querySelectorAll(".stat__num[data-count]");
+if (statNums.length) {
+  const runCount = (el) => {
+    const target = parseInt(el.dataset.count, 10);
+    if (reducedMotion) { el.textContent = target + "+"; return; }
+    const t0 = performance.now();
+    const dur = 1200;
+    (function step(now) {
+      const p = Math.min((now - t0) / dur, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(eased * target) + "+";
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  };
+  const statObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        runCount(entry.target);
+        statObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.6 });
+  statNums.forEach((el) => statObserver.observe(el));
+}
+
+/* ---------- nav scrollspy ---------- */
+const spyLinks = document.querySelectorAll(".nav__link");
+const spySections = [...spyLinks]
+  .map((l) => document.querySelector(l.hash))
+  .filter(Boolean);
+if (spySections.length) {
+  const spy = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        spyLinks.forEach((l) =>
+          l.classList.toggle("is-active", l.hash === "#" + entry.target.id)
+        );
+      }
+    });
+  }, { rootMargin: "-30% 0px -55% 0px" });
+  spySections.forEach((s) => spy.observe(s));
+}
+
+/* ---------- live Delhi clock ---------- */
+const clock = document.getElementById("clock");
+if (clock) {
+  const tick = () => {
+    clock.textContent = new Date().toLocaleTimeString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+  tick();
+  setInterval(tick, 30000);
+}
+
 /* ---------- custom cursor (desktop only) ---------- */
 const cursor = document.getElementById("cursor");
 if (cursor && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
@@ -160,8 +218,15 @@ if (cursor && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
   document.addEventListener("mouseleave", () => { cursor.style.opacity = "0"; });
   document.addEventListener("mouseenter", () => { cursor.style.opacity = ""; });
 
+  const cursorLabel = document.getElementById("cursor-label");
   document.addEventListener("mouseover", (e) => {
-    cursor.classList.toggle("is-hover", !!e.target.closest("a, button, .pill, .peek__card, .polaroid"));
+    const viewTarget = e.target.closest(".mini, .project__media, .peek__card");
+    cursor.classList.toggle("is-view", !!viewTarget);
+    if (cursorLabel) cursorLabel.textContent = viewTarget ? "VIEW ↗" : "";
+    cursor.classList.toggle(
+      "is-hover",
+      !viewTarget && !!e.target.closest("a, button, .pill, .polaroid")
+    );
   });
 
   (function follow() {
