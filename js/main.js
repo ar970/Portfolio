@@ -66,7 +66,7 @@ if (twEl && !reducedMotion) {
 }
 
 /* ---------- mouse-parallax doodles ---------- */
-const doodles = document.querySelectorAll(".doodle[data-depth]");
+const doodles = document.querySelectorAll(".doodle[data-depth], .pill-spot[data-depth]");
 if (doodles.length && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
   let mx = 0, my = 0;
   window.addEventListener("mousemove", (e) => {

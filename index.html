@@ -173,23 +173,54 @@
 
     <!-- ============ SKILLS / ABILITY ============ -->
     <section class="skills dotted" id="skills">
-      <span class="doodle" style="top:14%; left:8%; width:52px" data-depth="4"><svg class="doodle__float"><use href="#d-bulb"/></svg></span>
-      <span class="doodle" style="top:20%; right:9%; width:44px" data-depth="5"><svg class="doodle__float" style="animation-delay:1s"><use href="#d-sparkle"/></svg></span>
-      <span class="doodle" style="bottom:14%; left:14%; width:50px" data-depth="3"><svg class="doodle__float" style="animation-delay:.5s"><use href="#d-gear"/></svg></span>
-      <h2 class="section-title reveal">WHAT I BRING<br class="br-mobile" /> TO THE TABLE</h2>
-      <p class="skills__sub reveal">Collecting skills like Pokémon cards so your project doesn't need <span class="accent scribble">five different people</span></p>
-
-      <ul class="skills__cloud reveal" role="list">
-        <li class="pill" style="--rot:-4deg">AI Workflows</li>
-        <li class="pill" style="--rot:3deg">Automation (n8n / Zapier)</li>
-        <li class="pill" style="--rot:-2deg">Startup Building</li>
-        <li class="pill" style="--rot:5deg">Product Strategy</li>
-        <li class="pill" style="--rot:-5deg">Marketing</li>
-        <li class="pill" style="--rot:2deg">Prompt Engineering</li>
-        <li class="pill" style="--rot:-3deg">Data Analytics</li>
-        <li class="pill" style="--rot:4deg">GenAI Creative</li>
-        <li class="pill" style="--rot:-2deg">Finance</li>
+      <ul class="skills__scatter" role="list">
+        <li class="pill-spot" style="top:10%; left:40%"  data-depth="4"><span class="pill" style="--rot:6deg;  animation-delay:0s">AI Workflows</span></li>
+        <li class="pill-spot" style="top:13%; right:6%"  data-depth="3"><span class="pill" style="--rot:-7deg; animation-delay:.6s">Automation (n8n / Zapier)</span></li>
+        <li class="pill-spot" style="top:16%; left:12%"  data-depth="5"><span class="pill" style="--rot:-8deg; animation-delay:1.2s">Startup Building</span></li>
+        <li class="pill-spot" style="top:44%; left:5%"   data-depth="4"><span class="pill" style="--rot:7deg;  animation-delay:.3s">Product Strategy</span></li>
+        <li class="pill-spot" style="top:41%; right:5%"  data-depth="5"><span class="pill" style="--rot:-6deg; animation-delay:1.6s">Marketing</span></li>
+        <li class="pill-spot" style="bottom:25%; right:12%" data-depth="3"><span class="pill" style="--rot:8deg;  animation-delay:.9s">Prompt Engineering</span></li>
+        <li class="pill-spot" style="bottom:23%; left:9%"   data-depth="4"><span class="pill" style="--rot:-9deg; animation-delay:2s">Data Analytics</span></li>
+        <li class="pill-spot" style="bottom:7%;  left:36%"  data-depth="5"><span class="pill" style="--rot:5deg;  animation-delay:1.4s">GenAI Creative</span></li>
+        <li class="pill-spot" style="bottom:9%;  right:26%" data-depth="4"><span class="pill" style="--rot:-11deg; animation-delay:.5s">Finance</span></li>
       </ul>
+
+      <span class="doodle" style="top:9%; left:5%; width:50px" data-depth="3"><svg class="doodle__float"><use href="#d-bulb"/></svg></span>
+      <span class="doodle" style="top:28%; right:24%; width:36px" data-depth="6"><svg class="doodle__float" style="animation-delay:1s"><use href="#d-sparkle"/></svg></span>
+
+      <div class="skills__center">
+        <!-- peeking-over-laptop doodle -->
+        <figure class="skills__peek reveal" aria-hidden="true">
+          <svg viewBox="0 0 240 150" fill="none">
+            <g stroke="#2a3132" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <!-- head peeking above laptop lid -->
+              <circle cx="138" cy="78" r="34" fill="#f8f6f3"/>
+              <path d="M108 66 Q104 36 138 40 Q166 34 170 64 Q176 46 162 42" stroke-width="2.6"/>
+              <path d="M112 58 Q120 44 136 46 M146 42 Q158 42 164 52" stroke-width="2.2"/>
+              <path d="M136 30 Q140 20 148 24" stroke-width="2.2"/>
+              <!-- wide eyes with glasses -->
+              <circle cx="126" cy="76" r="10" fill="#f8f6f3" stroke-width="2.4"/>
+              <circle cx="152" cy="76" r="10" fill="#f8f6f3" stroke-width="2.4"/>
+              <circle cx="126" cy="77" r="2.6" fill="#2a3132"/>
+              <circle cx="152" cy="77" r="2.6" fill="#2a3132"/>
+              <path d="M136 76 L142 76" stroke-width="2.2"/>
+              <!-- laptop lid from behind, covering lower face -->
+              <path d="M60 96 L172 96 L184 146 L48 146 Z" fill="#f8f6f3"/>
+              <!-- halftone-ish texture dots on lid -->
+              <circle cx="82" cy="112" r="1.4" fill="#2a3132"/><circle cx="98" cy="118" r="1.4" fill="#2a3132"/><circle cx="114" cy="112" r="1.4" fill="#2a3132"/><circle cx="130" cy="120" r="1.4" fill="#2a3132"/><circle cx="146" cy="113" r="1.4" fill="#2a3132"/><circle cx="90" cy="130" r="1.4" fill="#2a3132"/><circle cx="108" cy="134" r="1.4" fill="#2a3132"/><circle cx="126" cy="132" r="1.4" fill="#2a3132"/><circle cx="144" cy="134" r="1.4" fill="#2a3132"/><circle cx="160" cy="128" r="1.4" fill="#2a3132"/>
+              <!-- fingers gripping lid -->
+              <path d="M96 96 Q98 90 102 96 M106 96 Q108 90 112 96 M158 96 Q160 90 164 96" stroke-width="2.4"/>
+            </g>
+            <g stroke="#ff5900" stroke-width="2.4" stroke-linecap="round" fill="none">
+              <path d="M186 60 C187 66 189 68 194 70 C189 72 187 74 186 80 C185 74 183 72 178 70 C183 68 185 66 186 60 Z"/>
+              <path d="M66 52 Q64 46 68 40 M78 54 Q76 48 80 42" stroke-width="2"/>
+            </g>
+          </svg>
+        </figure>
+
+        <h2 class="section-title reveal">WHAT I BRING<br class="br-mobile" /> TO THE TABLE</h2>
+        <p class="skills__sub reveal">Collecting skills like Pokémon cards so your project doesn't need <span class="accent scribble">five different people</span></p>
+      </div>
     </section>
 
     <!-- ============ WORK / DESIGN IN ACTION ============ -->

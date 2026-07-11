@@ -164,17 +164,30 @@ a { color: inherit; text-decoration: none; }
 }
 .pill {
   display: inline-block;
-  font-family: var(--hand);
-  font-size: clamp(1.05rem, 2vw, 1.45rem);
+  font-family: var(--body);
+  font-weight: 500;
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  letter-spacing: -0.01em;
+  color: #001666;
   background: var(--blue);
-  border: 1.5px solid var(--ink);
   border-radius: 999px;
-  padding: 0.35em 1.2em;
+  padding: 0.75em 1.6em;
+  white-space: nowrap;
   transform: rotate(var(--rot, 0deg));
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
   cursor: default;
+  animation: pill-bob 6s ease-in-out infinite;
 }
-.pill:hover { transform: rotate(0deg) scale(1.08); background: var(--orange); color: #fff; }
+.pill:hover {
+  transform: rotate(0deg) scale(1.1);
+  background: var(--orange);
+  color: #fff;
+  animation-play-state: paused;
+}
+@keyframes pill-bob {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -12px; }
+}
 
 /* ---------- custom cursor ---------- */
 #cursor {
@@ -369,22 +382,32 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
 }
 
 /* ---------- skills ---------- */
-.skills { padding: 90px 24px; text-align: center; position: relative; overflow: hidden; }
+.skills {
+  padding: 90px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skills__center { position: relative; z-index: 2; max-width: 980px; }
+.skills__peek { width: clamp(160px, 20vw, 230px); margin: 0 auto -10px; }
+.skills__peek svg { width: 100%; height: auto; }
 .skills__sub {
   max-width: 520px;
-  margin: 18px auto 44px;
+  margin: 18px auto 0;
   font-size: clamp(1rem, 2vw, 1.2rem);
   color: var(--muted);
 }
-.skills__cloud {
+.skills__scatter {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 18px 14px;
-  max-width: 760px;
-  margin: 0 auto;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
+.pill-spot { position: absolute; will-change: transform; }
 
 /* ---------- work / projects ---------- */
 .work { padding: 90px 0 70px; position: relative; }
@@ -622,13 +645,27 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
-  .hero__wave-hand, .doodle__float, .typewriter__caret { animation: none; }
+  .hero__wave-hand, .doodle__float, .typewriter__caret, .pill { animation: none; }
   html { scroll-behavior: auto; }
 }
 
 /* ---------- responsive ---------- */
 .br-mobile { display: none; }
 @media (max-width: 860px) {
+  /* skills scatter collapses to centered wrap below the text */
+  .skills { min-height: 0; flex-direction: column; }
+  .skills__scatter {
+    position: static;
+    order: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 10px;
+    margin-top: 40px;
+    max-width: 560px;
+  }
+  .pill-spot { position: static !important; }
+  .pill { white-space: normal; animation: none; font-size: 0.95rem; }
   .hero__grid { grid-template-columns: 1fr; gap: 20px; }
   .hero__text { text-align: center; }
   .hero__scene { max-width: 420px; margin: 0 auto; }
