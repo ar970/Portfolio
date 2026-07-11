@@ -10,41 +10,149 @@
 </head>
 <body>
 
+  <!-- custom cursor (desktop only, activated by JS) -->
+  <div id="cursor" aria-hidden="true"></div>
+
+  <!-- ============ DOODLE LIBRARY (hand-drawn style symbols) ============ -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="d-sparkle" viewBox="0 0 40 40">
+        <path d="M20 3 C21 11 23 15 29 17 C23 20 21 24 20 33 C18 24 16 20 10 18 C16 15 18 11 20 3 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="d-bulb" viewBox="0 0 48 56">
+        <path d="M24 8 C14 8 9 16 10 23 C11 29 15 31 16 35 L31 35 C32 30 36 29 37 22 C38 15 33 8 24 8 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M19 40 L29 40 M20 45 L28 45" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M24 0 L24 3 M8 4 L11 8 M40 4 L37 8 M3 20 L6 20 M45 19 L42 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="d-robot" viewBox="0 0 52 52">
+        <rect x="10" y="16" width="32" height="26" rx="7" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <circle cx="21" cy="28" r="2.2" fill="currentColor"/>
+        <circle cx="32" cy="28" r="2.2" fill="currentColor"/>
+        <path d="M20 35 Q26 39 33 35" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M26 16 L26 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="26" cy="6.5" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M10 24 L5 26 M42 24 L47 26" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="d-gear" viewBox="0 0 52 52">
+        <circle cx="26" cy="26" r="11" fill="none" stroke="currentColor" stroke-width="2.4"/>
+        <circle cx="26" cy="26" r="3.4" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <path d="M26 15 L26 8 M26 37 L26 44 M15 26 L8 26 M37 26 L44 26 M18 18 L13 13 M34 34 L39 39 M34 18 L39 13 M18 34 L13 39" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="d-rocket" viewBox="0 0 52 60">
+        <path d="M26 4 C33 11 36 21 33 34 L19 34 C16 21 19 11 26 4 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+        <circle cx="26" cy="19" r="4" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <path d="M19 30 C13 32 11 37 11 42 C15 40 18 39 20 39 M33 30 C39 32 41 37 41 42 C37 40 34 39 32 39" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+        <path d="M24 40 Q22 47 26 54 Q30 47 28 40" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="d-coffee" viewBox="0 0 52 52">
+        <path d="M12 22 L38 22 L36 44 Q26 48 14 44 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M38 26 Q46 26 45 32 Q44 38 35 37" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <path d="M20 16 Q18 12 21 8 M28 16 Q26 12 29 8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+      </symbol>
+      <symbol id="d-chart" viewBox="0 0 56 48">
+        <path d="M6 42 L6 6 M6 42 L50 42" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M12 34 L22 26 L28 30 L42 14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M36 13 L43 13 L43 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="d-plane" viewBox="0 0 56 48">
+        <path d="M4 22 L50 6 L34 42 L26 28 Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/>
+        <path d="M26 28 L50 6" fill="none" stroke="currentColor" stroke-width="2.2"/>
+        <path d="M8 34 Q13 33 16 35 M6 40 Q13 38 18 41" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/>
+      </symbol>
+    </defs>
+  </svg>
+
   <!-- ============ NAV ============ -->
   <header class="nav" id="top">
     <nav class="nav__inner">
-      <a href="#work" class="nav__link">work</a>
       <a href="#top" class="nav__logo" aria-label="Home">
         <img src="assets/images/avatar.svg" alt="AG monogram" />
       </a>
+      <a href="#work" class="nav__link">work</a>
       <a href="#about" class="nav__link">about</a>
+      <a href="#connect" class="nav__link">connect</a>
     </nav>
   </header>
 
   <main>
 
     <!-- ============ HERO ============ -->
-    <section class="hero" id="hero">
-      <div class="hero__doodle hero__doodle--tl" aria-hidden="true">✦</div>
-      <div class="hero__doodle hero__doodle--tr" aria-hidden="true">✷</div>
-      <div class="hero__doodle hero__doodle--bl" aria-hidden="true">✳</div>
+    <section class="hero dotted" id="hero">
+      <span class="doodle" style="top:8%; left:8%; width:74px" data-depth="3"><svg class="doodle__float"><use href="#d-robot"/></svg></span>
+      <span class="doodle" style="top:34%; left:44%; width:56px" data-depth="5"><svg class="doodle__float" style="animation-delay:.8s"><use href="#d-bulb"/></svg></span>
+      <span class="doodle" style="bottom:16%; left:16%; width:64px" data-depth="4"><svg class="doodle__float" style="animation-delay:1.6s"><use href="#d-rocket"/></svg></span>
+      <span class="doodle" style="top:12%; right:6%; width:44px" data-depth="6"><svg class="doodle__float" style="animation-delay:.4s"><use href="#d-sparkle"/></svg></span>
+      <span class="doodle" style="bottom:18%; right:4%; width:52px" data-depth="2"><svg class="doodle__float" style="animation-delay:2s"><use href="#d-gear"/></svg></span>
 
-      <div class="hero__intro reveal">
-        <span class="hero__wave"><span class="hero__wave-hand">👋</span></span>
-        <p class="hero__hi">Hi there, I am <span class="accent">Archit</span></p>
+      <div class="hero__grid">
+        <div class="hero__text">
+          <div class="hero__intro reveal">
+            <span class="hero__wave"><span class="hero__wave-hand">👋</span></span>
+            <p class="hero__hi">there, I am <span class="accent">Archit</span></p>
+          </div>
+
+          <h1 class="hero__title reveal">AN AI GENERALIST</h1>
+
+          <p class="hero__sub reveal">who <em class="accent scribble">actually builds</em> <span id="typewriter">things</span><span class="typewriter__caret">|</span></p>
+        </div>
+
+        <!-- hand-coded doodle scene: Archit at his laptop -->
+        <figure class="hero__scene reveal" aria-label="Doodle illustration: builder at a laptop surrounded by ideas">
+          <svg viewBox="0 0 520 420" fill="none">
+            <g stroke="#2a3132" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <!-- desk -->
+              <path d="M60 300 Q260 292 460 300" />
+              <path d="M90 302 L82 392 M430 302 L440 392" />
+              <path d="M120 392 L46 392 M470 392 L404 392" stroke-width="2.4"/>
+              <!-- laptop -->
+              <path d="M290 214 L406 206 L416 284 L296 290 Z" fill="#f8f6f3"/>
+              <path d="M296 290 L416 284 L436 296 L288 302 Z" fill="#f8f6f3"/>
+              <path d="M304 226 L394 220 M306 240 L396 234 M310 254 L380 250" stroke-width="2.2"/>
+              <!-- person: head + messy hair -->
+              <circle cx="200" cy="176" r="38" fill="#f8f6f3"/>
+              <path d="M166 160 Q160 128 196 132 Q214 118 228 138 Q248 140 238 164 Q246 150 232 144" stroke-width="2.6"/>
+              <path d="M170 152 Q178 136 196 138 M206 132 Q220 130 226 142" stroke-width="2.2"/>
+              <!-- glasses -->
+              <circle cx="188" cy="176" r="11" stroke-width="2.4"/>
+              <circle cx="216" cy="174" r="11" stroke-width="2.4"/>
+              <path d="M199 176 L205 175" stroke-width="2.2"/>
+              <!-- determined brow + smile -->
+              <path d="M180 160 L196 162 M208 160 L224 158" stroke-width="2.4"/>
+              <path d="M196 196 Q204 200 212 196" stroke-width="2.4"/>
+              <!-- body + arms typing -->
+              <path d="M186 212 Q160 232 162 268 Q176 292 216 294 Q248 292 252 264 Q250 234 222 212" fill="#f8f6f3"/>
+              <path d="M246 240 Q272 240 290 252" stroke-width="2.8"/>
+              <path d="M168 246 Q190 262 224 266" stroke-width="2.8"/>
+              <!-- papers on desk -->
+              <path d="M112 296 L156 288 L162 316 L118 324 Z" fill="#f8f6f3"/>
+              <path d="M122 300 L148 296 M124 308 L150 304" stroke-width="2"/>
+              <!-- coffee mug -->
+              <path d="M246 306 L274 304 L272 332 Q259 336 250 332 Z" fill="#f8f6f3"/>
+              <path d="M274 310 Q284 310 282 318 Q281 324 272 323" stroke-width="2.2"/>
+            </g>
+            <g stroke="#ff5900" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <!-- thought bubble with bulb -->
+              <circle cx="272" cy="118" r="3" />
+              <circle cx="294" cy="96" r="4.4" />
+              <ellipse cx="336" cy="66" rx="40" ry="28" />
+              <circle cx="336" cy="60" r="9" />
+              <path d="M332 71 L340 71 M333 76 L339 76" stroke-width="2.2"/>
+              <path d="M336 44 L336 48 M322 50 L325 53 M350 50 L347 53" stroke-width="2"/>
+              <!-- steam from mug -->
+              <path d="M254 296 Q252 290 256 284 M266 296 Q264 290 268 284" stroke-width="2.2"/>
+              <!-- sparkles around -->
+              <path d="M116 218 C117 224 119 226 124 228 C119 230 117 232 116 238 C115 232 113 230 108 228 C113 226 115 224 116 218 Z"/>
+              <path d="M448 168 C449 174 451 176 456 178 C451 180 449 182 448 188 C447 182 445 180 440 178 C445 176 447 174 448 168 Z"/>
+              <!-- little chart on laptop screen -->
+              <path d="M318 268 L332 258 L342 263 L360 246" stroke-width="2.4"/>
+              <path d="M355 246 L361 246 L361 252" stroke-width="2.4"/>
+            </g>
+          </svg>
+        </figure>
       </div>
 
-      <h1 class="hero__title reveal">
-        <span class="hero__title-line">AN AI</span>
-        <span class="hero__title-line">GENERALIST</span>
-      </h1>
-      <p class="hero__sub reveal">who <em class="accent scribble">actually builds</em> things&nbsp;!</p>
-
-      <figure class="hero__art reveal">
-        <img src="assets/images/hero-portrait.jpg" alt="Archit Gupta" />
-      </figure>
-
       <p class="hero__note reveal">I LEARN BEST BY BUILDING THINGS FROM SCRATCH — AND BREAKING THEM A FEW TIMES</p>
+      <span class="hero__scrollbar" aria-hidden="true"></span>
     </section>
 
     <!-- ============ SNEAK PEEK MARQUEE ============ -->
@@ -65,6 +173,9 @@
 
     <!-- ============ SKILLS / ABILITY ============ -->
     <section class="skills dotted" id="skills">
+      <span class="doodle" style="top:14%; left:8%; width:52px" data-depth="4"><svg class="doodle__float"><use href="#d-bulb"/></svg></span>
+      <span class="doodle" style="top:20%; right:9%; width:44px" data-depth="5"><svg class="doodle__float" style="animation-delay:1s"><use href="#d-sparkle"/></svg></span>
+      <span class="doodle" style="bottom:14%; left:14%; width:50px" data-depth="3"><svg class="doodle__float" style="animation-delay:.5s"><use href="#d-gear"/></svg></span>
       <h2 class="section-title reveal">WHAT I BRING<br class="br-mobile" /> TO THE TABLE</h2>
       <p class="skills__sub reveal">Collecting skills like Pokémon cards so your project doesn't need <span class="accent scribble">five different people</span></p>
 
@@ -83,6 +194,8 @@
 
     <!-- ============ WORK / DESIGN IN ACTION ============ -->
     <section class="work dotted" id="work">
+      <span class="doodle" style="top:1.5%; left:10%; width:58px" data-depth="4"><svg class="doodle__float"><use href="#d-rocket"/></svg></span>
+      <span class="doodle" style="top:2.5%; right:10%; width:52px" data-depth="3"><svg class="doodle__float" style="animation-delay:1.2s"><use href="#d-chart"/></svg></span>
       <h2 class="section-title reveal">IDEAS IN ACTION</h2>
 
       <div class="work__stack">
@@ -190,6 +303,8 @@
 
     <!-- ============ EXPERIENCE & EDUCATION ============ -->
     <section class="journey" id="journey">
+      <span class="doodle" style="top:8%; right:7%; width:54px" data-depth="4"><svg class="doodle__float"><use href="#d-chart"/></svg></span>
+      <span class="doodle" style="bottom:8%; left:6%; width:44px" data-depth="3"><svg class="doodle__float" style="animation-delay:.7s"><use href="#d-sparkle"/></svg></span>
       <div class="journey__inner">
         <h2 class="section-title reveal">WHERE I'VE <span class="accent">BEEN</span></h2>
 
@@ -279,6 +394,8 @@
 
     <!-- ============ ABOUT ============ -->
     <section class="about" id="about">
+      <span class="doodle doodle--light" style="top:7%; left:8%; width:52px" data-depth="4"><svg class="doodle__float"><use href="#d-coffee"/></svg></span>
+      <span class="doodle doodle--light" style="top:12%; right:8%; width:44px" data-depth="3"><svg class="doodle__float" style="animation-delay:1.4s"><use href="#d-sparkle"/></svg></span>
       <h2 class="section-title section-title--light reveal">SOMETHING ABOUT ME</h2>
 
       <div class="about__bio reveal">
@@ -306,6 +423,8 @@
 
     <!-- ============ CONNECT / FOOTER ============ -->
     <section class="connect" id="connect">
+      <span class="doodle" style="top:16%; left:12%; width:58px" data-depth="4"><svg class="doodle__float"><use href="#d-plane"/></svg></span>
+      <span class="doodle" style="bottom:20%; right:11%; width:46px" data-depth="3"><svg class="doodle__float" style="animation-delay:.9s"><use href="#d-sparkle"/></svg></span>
       <h2 class="section-title reveal">LET'S CONNECT</h2>
       <p class="connect__sub reveal">Open to AI projects, collaborations and startup opportunities.</p>
       <div class="connect__links reveal">

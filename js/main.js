@@ -37,6 +37,74 @@ document.querySelectorAll("[data-link]").forEach((el) => {
 /* ---------- current year in footer ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
 
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ---------- typewriter in hero sub-line ---------- */
+const TYPEWRITER_WORDS = ["things", "AI workflows", "automations", "startups", "brands"];
+const twEl = document.getElementById("typewriter");
+if (twEl && !reducedMotion) {
+  let wordIndex = 0;
+  let charIndex = TYPEWRITER_WORDS[0].length;
+  let deleting = true;
+
+  (function type() {
+    const word = TYPEWRITER_WORDS[wordIndex];
+    charIndex += deleting ? -1 : 1;
+    twEl.textContent = word.slice(0, charIndex);
+
+    let delay = deleting ? 55 : 95;
+    if (!deleting && charIndex === word.length) {
+      delay = 2200; // pause on full word
+      deleting = true;
+    } else if (deleting && charIndex === 0) {
+      wordIndex = (wordIndex + 1) % TYPEWRITER_WORDS.length;
+      deleting = false;
+      delay = 350;
+    }
+    setTimeout(type, delay);
+  })();
+}
+
+/* ---------- mouse-parallax doodles ---------- */
+const doodles = document.querySelectorAll(".doodle[data-depth]");
+if (doodles.length && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+  let mx = 0, my = 0;
+  window.addEventListener("mousemove", (e) => {
+    mx = e.clientX / window.innerWidth - 0.5;
+    my = e.clientY / window.innerHeight - 0.5;
+  });
+  (function drift() {
+    doodles.forEach((d) => {
+      const depth = parseFloat(d.dataset.depth || "3");
+      d.style.transform = `translate(${mx * depth * -9}px, ${my * depth * -9}px)`;
+    });
+    requestAnimationFrame(drift);
+  })();
+}
+
+/* ---------- custom cursor (desktop only) ---------- */
+const cursor = document.getElementById("cursor");
+if (cursor && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+  document.body.classList.add("has-cursor");
+  let cx = -100, cy = -100, tx = -100, ty = -100;
+
+  window.addEventListener("mousemove", (e) => { tx = e.clientX; ty = e.clientY; });
+  document.addEventListener("mouseleave", () => { cursor.style.opacity = "0"; });
+  document.addEventListener("mouseenter", () => { cursor.style.opacity = ""; });
+
+  document.addEventListener("mouseover", (e) => {
+    cursor.classList.toggle("is-hover", !!e.target.closest("a, button, .pill, .peek__card, .polaroid"));
+  });
+
+  (function follow() {
+    cx += (tx - cx) * 0.22;
+    cy += (ty - cy) * 0.22;
+    cursor.style.left = cx + "px";
+    cursor.style.top = cy + "px";
+    requestAnimationFrame(follow);
+  })();
+}
+
 /* ---------- reveal on scroll ---------- */
 const observer = new IntersectionObserver(
   (entries) => {
