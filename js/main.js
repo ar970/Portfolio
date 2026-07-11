@@ -15,6 +15,7 @@ const LINKS = {
   project2:   "https://www.linkedin.com/posts/archit1362007_hackathon-foundermindset-innovation-activity-7364359460884008960-yOu0",
   project3:   "https://drive.google.com/drive/folders/1GSd8FVggqou0rv4H7MUuGBdotrxx2qvS",
   project4:   "https://drive.google.com/drive/folders/1ZaCODztAl5cXwPoDlkv6mBzvVZqvGiZ5",
+  stoneawake: "https://lnkd.in/g7BfNf5T",
   kfc:        "https://drive.google.com/file/d/1_gKC3y2n9FwR-kqinRSH_f7fy5d3OAUC/view",
   cyberkido:  "https://drive.google.com/drive/folders/1XA4WizOeFbPPIUvQAqXTQCguJRqD_m4O",
   nutriladooz:"#", // no external link — card stays on page until one exists
