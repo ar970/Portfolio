@@ -30,6 +30,5 @@ assets/images/    — currently SVG placeholders → replace with real images
 
 All links live in the `LINKS` object at the top of `js/main.js`:
 
-1. **GitHub profile URL** — currently `#`
-2. **Resume PDF** — currently `#` (drop the file into `assets/documents/` and point `LINKS.resume` at it)
-3. **Nutri Ladooz link** — no external link existed in the old portfolio
+1. **Resume PDF** — currently `#` (drop the file into `assets/documents/` and point `LINKS.resume` at it once finalized)
+2. **Nutri Ladooz link** — no external link existed in the old portfolio

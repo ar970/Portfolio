@@ -8,7 +8,7 @@
    -------------------------------------------------------------------------- */
 const LINKS = {
   linkedin:   "https://www.linkedin.com/in/archit1362007",
-  github:     "#", // TODO: add your GitHub profile URL
+  github:     "https://github.com/ar970",
   email:      "mailto:arctheceo@gmail.com",
   resume:     "#", // TODO: add resume PDF (e.g. "assets/documents/resume.pdf")
   project1:   "https://vyaasa.co/",
