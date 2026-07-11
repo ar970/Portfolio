@@ -83,6 +83,73 @@ if (doodles.length && !reducedMotion && window.matchMedia("(pointer: fine)").mat
   })();
 }
 
+/* ---------- hero scene draws itself in on load ---------- */
+const scene = document.querySelector(".hero__scene svg");
+if (scene && !reducedMotion) {
+  const shapes = scene.querySelectorAll("path, circle, ellipse, rect");
+  shapes.forEach((el, i) => {
+    let len = 0;
+    try { len = el.getTotalLength(); } catch { return; }
+    el.style.strokeDasharray = len;
+    el.style.strokeDashoffset = len;
+    el.style.fillOpacity = "0";
+    el.style.transition =
+      `stroke-dashoffset 0.9s ease ${0.15 + i * 0.045}s, fill-opacity 0.5s ease ${0.5 + i * 0.045}s`;
+  });
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => {
+      shapes.forEach((el) => {
+        el.style.strokeDashoffset = "0";
+        el.style.fillOpacity = "1";
+      });
+    })
+  );
+}
+
+/* ---------- scroll progress line ---------- */
+const progress = document.getElementById("progress");
+if (progress) {
+  const update = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = (max > 0 ? (window.scrollY / max) * 100 : 0) + "%";
+  };
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+}
+
+/* ---------- rocket back-to-top ---------- */
+const totop = document.getElementById("totop");
+if (totop) {
+  window.addEventListener(
+    "scroll",
+    () => totop.classList.toggle("is-shown", window.scrollY > 600),
+    { passive: true }
+  );
+  totop.addEventListener("click", () => {
+    if (!reducedMotion) {
+      totop.classList.add("is-launching");
+      setTimeout(() => totop.classList.remove("is-launching"), 1100);
+    }
+    window.scrollTo({ top: 0, behavior: reducedMotion ? "auto" : "smooth" });
+  });
+}
+
+/* ---------- 3D tilt on project cards ---------- */
+if (!reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+  document.querySelectorAll(".project").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform =
+        `perspective(1100px) rotateX(${(-y * 3).toFixed(2)}deg) rotateY(${(x * 3).toFixed(2)}deg)`;
+    });
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+    });
+  });
+}
+
 /* ---------- custom cursor (desktop only) ---------- */
 const cursor = document.getElementById("cursor");
 if (cursor && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {

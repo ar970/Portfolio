@@ -5,6 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Archit Gupta — AI Generalist</title>
   <meta name="description" content="Portfolio of Archit Gupta — AI generalist and aspiring entrepreneur. AI workflows, automation, startups, and marketing." />
+  <meta property="og:title" content="Archit Gupta — AI Generalist" />
+  <meta property="og:description" content="AI workflows, automation, startups and marketing — a portfolio that can actually build things." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="theme-color" content="#f8f6f3" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Archit Gupta",
+    "jobTitle": "AI Generalist",
+    "email": "mailto:arctheceo@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/archit1362007",
+      "https://github.com/ar970"
+    ]
+  }
+  </script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%23ff5900'/><text y='68' x='50' text-anchor='middle' font-size='48' fill='white' font-family='Georgia'>A</text></svg>" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -12,6 +30,14 @@
 
   <!-- custom cursor (desktop only, activated by JS) -->
   <div id="cursor" aria-hidden="true"></div>
+
+  <!-- scroll progress line -->
+  <div id="progress" aria-hidden="true"></div>
+
+  <!-- rocket back-to-top -->
+  <button id="totop" aria-label="Back to top">
+    <svg viewBox="0 0 52 60"><use href="#d-rocket"/></svg>
+  </button>
 
   <!-- ============ DOODLE LIBRARY (hand-drawn style symbols) ============ -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -241,7 +267,7 @@
       <h2 class="section-title reveal">IDEAS IN ACTION</h2>
 
       <div class="work__stack">
-        <article class="project" style="--i:0">
+        <article class="project" style="--i:0" data-num="01">
           <div class="project__media">
             <img src="assets/images/project-vyaasa.png" alt="Vyaasa — AI automation" />
           </div>
@@ -258,7 +284,7 @@
           </div>
         </article>
 
-        <article class="project" style="--i:1">
+        <article class="project" style="--i:1" data-num="02">
           <div class="project__media">
             <img src="assets/images/project-sdg.png" alt="SDG Hackathon — GigFin" />
           </div>
@@ -275,7 +301,7 @@
           </div>
         </article>
 
-        <article class="project" style="--i:2">
+        <article class="project" style="--i:2" data-num="03">
           <div class="project__media">
             <img src="assets/images/project-gozero.jpg" alt="Go Zero — AI ad campaign" />
           </div>
@@ -292,7 +318,7 @@
           </div>
         </article>
 
-        <article class="project" style="--i:3">
+        <article class="project" style="--i:3" data-num="04">
           <div class="project__media">
             <img src="assets/images/project-sylphee.jpg" alt="Sylphée — skincare brand" />
           </div>
