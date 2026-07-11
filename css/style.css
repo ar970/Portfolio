@@ -283,7 +283,10 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
   position: relative;
   z-index: 2;
 }
-.hero__text { text-align: left; }
+.hero__text { text-align: left; position: relative; }
+/* content-anchored doodles: always in whitespace regardless of window size */
+.hero__robot { top: -64px; left: 96px; width: 56px; }
+.hero__bulb { top: 4%; left: -60px; width: 52px; }
 .hero__intro {
   display: inline-flex;
   align-items: center;
@@ -675,6 +678,10 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
   .hero__grid { grid-template-columns: 1fr; gap: 20px; }
   .hero__text { text-align: center; }
   .hero__scene { max-width: 420px; margin: 0 auto; }
+  .hero__robot { top: -64px; left: auto; right: 10%; }
+  .hero__bulb { display: none; }
+  /* bottom-corner doodles (rocket, gear) crowd the caption on small screens */
+  .hero > .doodle:nth-of-type(1), .hero > .doodle:nth-of-type(3) { display: none; }
   .hero__wave { width: 54px; height: 54px; font-size: 1.4rem; }
   .doodle { transform: scale(0.72); }
   .project {

@@ -78,14 +78,14 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero dotted" id="hero">
-      <span class="doodle" style="top:8%; left:8%; width:74px" data-depth="3"><svg class="doodle__float"><use href="#d-robot"/></svg></span>
-      <span class="doodle" style="top:34%; left:44%; width:56px" data-depth="5"><svg class="doodle__float" style="animation-delay:.8s"><use href="#d-bulb"/></svg></span>
-      <span class="doodle" style="bottom:16%; left:16%; width:64px" data-depth="4"><svg class="doodle__float" style="animation-delay:1.6s"><use href="#d-rocket"/></svg></span>
+      <span class="doodle" style="bottom:16%; left:5%; width:64px" data-depth="4"><svg class="doodle__float" style="animation-delay:1.6s"><use href="#d-rocket"/></svg></span>
       <span class="doodle" style="top:12%; right:6%; width:44px" data-depth="6"><svg class="doodle__float" style="animation-delay:.4s"><use href="#d-sparkle"/></svg></span>
       <span class="doodle" style="bottom:18%; right:4%; width:52px" data-depth="2"><svg class="doodle__float" style="animation-delay:2s"><use href="#d-gear"/></svg></span>
 
       <div class="hero__grid">
         <div class="hero__text">
+          <!-- anchored to the text block so they never drift onto the copy -->
+          <span class="doodle hero__robot" data-depth="3"><svg class="doodle__float"><use href="#d-robot"/></svg></span>
           <div class="hero__intro reveal">
             <span class="hero__wave"><span class="hero__wave-hand">👋</span></span>
             <p class="hero__hi">there, I am <span class="accent">Archit</span></p>
@@ -98,6 +98,7 @@
 
         <!-- hand-coded doodle scene: Archit at his laptop -->
         <figure class="hero__scene reveal" aria-label="Doodle illustration: builder at a laptop surrounded by ideas">
+          <span class="doodle hero__bulb" data-depth="5"><svg class="doodle__float" style="animation-delay:.8s"><use href="#d-bulb"/></svg></span>
           <svg viewBox="0 0 520 420" fill="none">
             <g stroke="#2a3132" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <!-- desk -->
