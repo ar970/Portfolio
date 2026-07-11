@@ -7,16 +7,17 @@
    Every button on the page with a data-link attribute reads from here.
    -------------------------------------------------------------------------- */
 const LINKS = {
-  linkedin:   "#", // e.g. "https://www.linkedin.com/in/your-handle"
-  instagram:  "#", // e.g. "https://www.instagram.com/your-handle"
-  behance:    "#", // e.g. "https://www.behance.net/your-handle"
-  resume:     "#", // e.g. "assets/resume.pdf"
-  otherWorks: "#", // e.g. a Behance/Notion page with more work
-  artPage:    "#", // e.g. your art/illustration page
-  project1:   "#",
-  project2:   "#",
-  project3:   "#",
-  project4:   "#",
+  linkedin:   "https://www.linkedin.com/in/archit1362007",
+  github:     "#", // TODO: add your GitHub profile URL
+  email:      "mailto:arctheceo@gmail.com",
+  resume:     "#", // TODO: add resume PDF (e.g. "assets/documents/resume.pdf")
+  project1:   "https://vyaasa.co/",
+  project2:   "https://www.linkedin.com/posts/archit1362007_hackathon-foundermindset-innovation-activity-7364359460884008960-yOu0",
+  project3:   "https://drive.google.com/drive/folders/1GSd8FVggqou0rv4H7MUuGBdotrxx2qvS",
+  project4:   "https://drive.google.com/drive/folders/1ZaCODztAl5cXwPoDlkv6mBzvVZqvGiZ5",
+  kfc:        "https://drive.google.com/file/d/1_gKC3y2n9FwR-kqinRSH_f7fy5d3OAUC/view",
+  cyberkido:  "https://drive.google.com/drive/folders/1XA4WizOeFbPPIUvQAqXTQCguJRqD_m4O",
+  nutriladooz:"#", // no external link — card stays on page until one exists
 };
 
 document.querySelectorAll("[data-link]").forEach((el) => {
