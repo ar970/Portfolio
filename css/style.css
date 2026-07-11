@@ -393,6 +393,8 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
   justify-content: center;
 }
 .skills__center { position: relative; z-index: 2; max-width: 980px; }
+/* slightly smaller title here so edge pills always clear it on wide screens */
+.skills .section-title { font-size: clamp(2.4rem, 6vw, 5rem); }
 .skills__peek { width: clamp(160px, 20vw, 230px); margin: 0 auto -10px; }
 .skills__peek svg { width: 100%; height: auto; }
 .skills__sub {
@@ -651,8 +653,9 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
 
 /* ---------- responsive ---------- */
 .br-mobile { display: none; }
-@media (max-width: 860px) {
-  /* skills scatter collapses to centered wrap below the text */
+/* below this width the absolute scatter runs out of safe room —
+   collapse to a centered wrapped cloud under the text */
+@media (max-width: 1100px) {
   .skills { min-height: 0; flex-direction: column; }
   .skills__scatter {
     position: static;
@@ -664,8 +667,11 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
     margin-top: 40px;
     max-width: 560px;
   }
-  .pill-spot { position: static !important; }
+  .pill-spot { position: static !important; transform: none !important; }
   .pill { white-space: normal; animation: none; font-size: 0.95rem; }
+}
+
+@media (max-width: 860px) {
   .hero__grid { grid-template-columns: 1fr; gap: 20px; }
   .hero__text { text-align: center; }
   .hero__scene { max-width: 420px; margin: 0 auto; }
