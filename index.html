@@ -455,14 +455,96 @@
 
     <!-- ============ CONNECT / FOOTER ============ -->
     <section class="connect" id="connect">
-      <span class="doodle" style="top:16%; left:12%; width:58px" data-depth="4"><svg class="doodle__float"><use href="#d-plane"/></svg></span>
-      <span class="doodle" style="bottom:20%; right:11%; width:46px" data-depth="3"><svg class="doodle__float" style="animation-delay:.9s"><use href="#d-sparkle"/></svg></span>
-      <h2 class="section-title reveal">LET'S CONNECT</h2>
-      <p class="connect__sub reveal">Open to AI projects, collaborations and startup opportunities.</p>
-      <div class="connect__links reveal">
-        <a class="btn btn--big" href="#" data-link="linkedin">LINKEDIN <span class="btn__arrow">↗</span></a>
-        <a class="btn btn--big" href="#" data-link="github">GITHUB <span class="btn__arrow">↗</span></a>
-        <a class="btn btn--big" href="#" data-link="email">EMAIL <span class="btn__arrow">↗</span></a>
+      <span class="doodle" style="top:30%; left:4%; width:58px" data-depth="4"><svg class="doodle__float"><use href="#d-plane"/></svg></span>
+      <span class="doodle" style="top:46%; right:5%; width:46px" data-depth="3"><svg class="doodle__float" style="animation-delay:.9s"><use href="#d-sparkle"/></svg></span>
+
+      <div class="connect__inner">
+        <div class="connect__head reveal">
+          <!-- hand-drawn postage stamp: Jodhpur, home of IIT J -->
+          <figure class="connect__stamp" aria-label="Illustrated postage stamp of Jodhpur">
+            <svg viewBox="0 0 190 260" fill="none">
+              <!-- perforated stamp edge -->
+              <rect x="6" y="6" width="178" height="248" fill="#faf4e8" stroke="#c9c2b4" stroke-width="2" stroke-dasharray="1 9" stroke-linecap="round"/>
+              <rect x="16" y="16" width="158" height="228" fill="none" stroke="#b9ab90" stroke-width="1.4"/>
+              <text x="26" y="40" font-family="Georgia, serif" font-size="15" fill="#8a4a2b" letter-spacing="1">JODHPUR</text>
+              <text x="132" y="40" font-family="Georgia, serif" font-size="15" fill="#8a4a2b">342030</text>
+              <text x="26" y="56" font-family="Georgia, serif" font-size="11" fill="#b08d5f">जोधपुर</text>
+              <!-- Mehrangarh fort doodle -->
+              <g stroke="#4a3b2c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- rock base -->
+                <path d="M26 226 Q50 208 60 190 Q80 200 110 196 Q140 200 164 188 L164 226 Z" fill="#efe3cc"/>
+                <!-- fort walls -->
+                <path d="M52 190 L52 138 L70 138 L70 128 L86 128 L86 148 L118 148 L118 132 L134 132 L134 122 L150 122 L150 186" fill="#f6ecd8"/>
+                <!-- crenellations -->
+                <path d="M52 138 L56 132 L60 138 M62 138 L66 132 L70 138 M118 132 L122 126 L126 132 M134 122 L138 116 L142 122 M142 122 L146 116 L150 122"/>
+                <!-- windows -->
+                <path d="M60 152 Q63 146 66 152 L66 162 L60 162 Z M96 158 Q99 152 102 158 L102 170 L96 170 Z M126 142 Q129 136 132 142 L132 152 L126 152 Z" fill="#d9c49a"/>
+                <!-- flag -->
+                <path d="M104 148 L104 112 M104 112 Q116 116 104 122"/>
+              </g>
+              <!-- sun -->
+              <g stroke="#ff5900" stroke-width="1.8" stroke-linecap="round">
+                <circle cx="150" cy="78" r="9" fill="#ffd9c2"/>
+                <path d="M150 62 L150 58 M162 66 L165 63 M166 78 L170 78 M138 66 L135 63"/>
+              </g>
+              <text x="95" y="240" font-family="Georgia, serif" font-size="9" fill="#b08d5f" text-anchor="middle" letter-spacing="3">भारत • INDIA</text>
+            </svg>
+          </figure>
+
+          <div class="connect__right">
+            <div class="connect__titlerow">
+              <h2 class="section-title connect__title">LET'S CONNECT</h2>
+              <a class="btn btn--home" href="#top">HOME</a>
+            </div>
+            <div class="connect__links">
+              <a class="btn btn--big btn--connect" href="#" data-link="linkedin">LINKEDIN <span class="btn__arrow">↗</span></a>
+              <a class="btn btn--big btn--connect" href="#" data-link="github">GITHUB <span class="btn__arrow">↗</span></a>
+              <a class="btn btn--big btn--connect" href="#" data-link="email">EMAIL <span class="btn__arrow">↗</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- sketchbook portrait trio: gray studies behind, ink figure in front -->
+        <figure class="connect__portrait reveal" aria-label="Doodle self-portraits">
+          <svg viewBox="0 0 640 330" fill="none">
+            <!-- left gray study: waving -->
+            <g stroke="#b3b8ba" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M118 330 L118 292 Q118 268 140 262 L192 262 Q214 268 214 292 L214 330"/>
+              <circle cx="166" cy="216" r="42" fill="#f8f6f3"/>
+              <path d="M128 204 Q122 168 160 170 Q186 158 202 182 Q212 196 206 214 M136 190 Q146 174 166 176"/>
+              <circle cx="152" cy="218" r="10"/><circle cx="180" cy="216" r="10"/>
+              <path d="M162 218 L168 217 M150 240 Q160 246 172 240"/>
+              <path d="M112 268 Q92 252 86 228 M86 228 L78 214 M86 228 L94 212 M86 228 L98 218"/>
+            </g>
+            <!-- right gray study: thinking -->
+            <g stroke="#b3b8ba" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M430 330 L430 296 Q430 274 450 268 L500 268 Q522 274 522 296 L522 330"/>
+              <circle cx="476" cy="222" r="40" fill="#f8f6f3"/>
+              <path d="M440 210 Q434 176 470 178 Q496 166 510 190 Q520 202 514 220 M448 196 Q458 180 476 182"/>
+              <circle cx="463" cy="224" r="9"/><circle cx="490" cy="222" r="9"/>
+              <path d="M472 224 L478 223 M464 244 Q474 242 482 244"/>
+              <path d="M516 268 Q530 252 528 238 M528 238 Q538 234 540 226"/>
+            </g>
+            <!-- center ink figure -->
+            <g stroke="#1e1a1c" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+              <!-- shoulders with halftone shirt -->
+              <path d="M250 330 L250 290 Q250 262 276 256 L364 256 Q390 262 390 290 L390 330" fill="#f8f6f3"/>
+              <circle cx="277" cy="292" r="1.7" fill="#1e1a1c"/><circle cx="295" cy="300" r="1.7" fill="#1e1a1c"/><circle cx="313" cy="292" r="1.7" fill="#1e1a1c"/><circle cx="331" cy="302" r="1.7" fill="#1e1a1c"/><circle cx="349" cy="294" r="1.7" fill="#1e1a1c"/><circle cx="285" cy="316" r="1.7" fill="#1e1a1c"/><circle cx="305" cy="320" r="1.7" fill="#1e1a1c"/><circle cx="325" cy="318" r="1.7" fill="#1e1a1c"/><circle cx="345" cy="316" r="1.7" fill="#1e1a1c"/><circle cx="363" cy="310" r="1.7" fill="#1e1a1c"/>
+              <!-- head -->
+              <circle cx="320" cy="204" r="50" fill="#f8f6f3"/>
+              <!-- messy dark hair, filled -->
+              <path d="M272 206 Q262 152 306 148 Q318 132 336 146 Q374 140 372 186 Q384 168 370 156 Q394 176 368 210 Q372 178 354 166 Q360 186 348 176 Q336 158 312 164 Q286 168 282 196 Q276 186 284 172 Q268 182 272 206 Z" fill="#1e1a1c" stroke-width="2.6"/>
+              <path d="M320 136 Q326 126 334 130" stroke-width="2.6"/>
+              <!-- glasses -->
+              <circle cx="302" cy="208" r="14" fill="#f8f6f3"/>
+              <circle cx="340" cy="206" r="14" fill="#f8f6f3"/>
+              <path d="M316 208 L326 207 M288 206 L280 202 M354 204 L362 200"/>
+              <circle cx="302" cy="209" r="4" fill="#1e1a1c"/><circle cx="340" cy="207" r="4" fill="#1e1a1c"/>
+              <!-- calm mouth -->
+              <path d="M310 236 L330 235"/>
+            </g>
+          </svg>
+        </figure>
       </div>
     </section>
 
