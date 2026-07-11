@@ -684,7 +684,26 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
   font-family: var(--hand);
   font-size: 1.05rem;
   color: var(--orange);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
 }
+.project__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--body);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #1d7a3a;
+  background: #e5f5ea;
+  border: 1.2px solid #1d7a3a;
+  border-radius: 999px;
+  padding: 0.35em 0.9em;
+}
+.project__live .pulse { width: 7px; height: 7px; }
+.project__media--doodle svg { width: 100%; height: 100%; display: block; }
 .project__title {
   font-family: var(--display);
   font-weight: 600;
