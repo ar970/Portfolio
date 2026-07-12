@@ -12,7 +12,7 @@ const LINKS = {
   email:      "mailto:arctheceo@gmail.com",
   resume:     "#", // TODO: add resume PDF (e.g. "assets/documents/resume.pdf")
   project1:   "https://vyaasa.co/",
-  project2:   "https://www.linkedin.com/posts/archit1362007_hackathon-foundermindset-innovation-activity-7364359460884008960-yOu0",
+  sdg:        "https://www.linkedin.com/posts/archit1362007_hackathon-foundermindset-innovation-activity-7364359460884008960-yOu0",
   project3:   "https://drive.google.com/drive/folders/1GSd8FVggqou0rv4H7MUuGBdotrxx2qvS",
   project4:   "https://drive.google.com/drive/folders/1ZaCODztAl5cXwPoDlkv6mBzvVZqvGiZ5",
   scribl:     "https://scribledu.vercel.app/",
