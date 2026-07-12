@@ -18,6 +18,7 @@ const LINKS = {
   campusprep: "https://omterview-coach-india.vercel.app/",
   stoneawake: "https://lnkd.in/g7BfNf5T",
   kfc:        "https://drive.google.com/file/d/1_gKC3y2n9FwR-kqinRSH_f7fy5d3OAUC/view",
+  newkind:    "https://drive.google.com/drive/folders/1oQE_iJ7UPx7hfDGLkzmfjrHJXrqw9UQg",
   cyberkido:  "https://drive.google.com/drive/folders/1XA4WizOeFbPPIUvQAqXTQCguJRqD_m4O",
   nutriladooz:"#", // no external link — card stays on page until one exists
 };
