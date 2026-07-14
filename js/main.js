@@ -3,6 +3,54 @@
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
+   INTRO / PRELOADER — counts up, then curtains away to reveal the hero.
+   -------------------------------------------------------------------------- */
+(function intro() {
+  const el = document.getElementById("intro");
+  if (!el) return;
+  const rm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const numEl = document.getElementById("introNum");
+  const barEl = document.getElementById("introBar");
+  const wordEl = document.getElementById("introWord");
+  const words = ["RESEARCH", "DESIGN", "BUILD", "SHIP"];
+
+  const finish = () => {
+    el.classList.add("is-done");
+    document.body.classList.remove("intro-lock");
+    document.body.classList.add("ready");
+    setTimeout(() => el.remove(), 950);
+  };
+
+  document.body.classList.add("intro-lock");
+
+  if (rm) {
+    numEl.textContent = "100";
+    barEl.style.width = "100%";
+    setTimeout(finish, 400);
+    return;
+  }
+
+  const start = performance.now();
+  const dur = 1900;
+  let wi = 0;
+  (function step(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const eased = 1 - Math.pow(1 - p, 2.2);
+    const val = Math.round(eased * 100);
+    numEl.textContent = val;
+    barEl.style.width = eased * 100 + "%";
+    const nextWord = Math.min(words.length - 1, Math.floor(p * words.length));
+    if (nextWord !== wi) { wi = nextWord; wordEl.textContent = words[wi]; }
+    if (p < 1) requestAnimationFrame(step);
+    else setTimeout(finish, 260);
+  })(start);
+
+  // failsafe: never trap the visitor
+  setTimeout(() => { if (document.getElementById("intro")) finish(); }, 4200);
+})();
+
+
+/* --------------------------------------------------------------------------
    LINKS CONFIG — fill these in with your real URLs.
    Every button on the page with a data-link attribute reads from here.
    -------------------------------------------------------------------------- */
@@ -136,14 +184,27 @@ if (scene && !reducedMotion) {
     el.style.transition =
       `stroke-dashoffset 0.9s ease ${0.15 + i * 0.045}s, fill-opacity 0.5s ease ${0.5 + i * 0.045}s`;
   });
-  requestAnimationFrame(() =>
-    requestAnimationFrame(() => {
-      shapes.forEach((el) => {
-        el.style.strokeDashoffset = "0";
-        el.style.fillOpacity = "1";
-      });
-    })
-  );
+  const play = () =>
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => {
+        shapes.forEach((el) => {
+          el.style.strokeDashoffset = "0";
+          el.style.fillOpacity = "1";
+        });
+      })
+    );
+  // wait for the intro curtain to lift, then draw
+  if (document.body.classList.contains("ready")) {
+    play();
+  } else {
+    const obs = new MutationObserver(() => {
+      if (document.body.classList.contains("ready")) {
+        obs.disconnect();
+        play();
+      }
+    });
+    obs.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  }
 }
 
 /* ---------- scroll progress line ---------- */
