@@ -188,6 +188,48 @@ document.querySelectorAll(".project").forEach((card) => {
   });
 });
 
+/* ---------- characters come alive: eyes follow the cursor ---------- */
+const pupils = document.querySelectorAll(".eye-pupil");
+if (pupils.length && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+  pupils.forEach((p) => {
+    p.dataset.bx = p.getAttribute("cx");
+    p.dataset.by = p.getAttribute("cy");
+  });
+  const moveEyes = (clientX, clientY) => {
+    pupils.forEach((p) => {
+      const svg = p.ownerSVGElement;
+      if (!svg) return;
+      const ctm = svg.getScreenCTM();
+      if (!ctm) return;
+      const pt = svg.createSVGPoint();
+      pt.x = +p.dataset.bx;
+      pt.y = +p.dataset.by;
+      const s = pt.matrixTransform(ctm);
+      const ang = Math.atan2(clientY - s.y, clientX - s.x);
+      const max = +p.getAttribute("r") * 0.9;
+      p.setAttribute("cx", (+p.dataset.bx + Math.cos(ang) * max).toFixed(2));
+      p.setAttribute("cy", (+p.dataset.by + Math.sin(ang) * max).toFixed(2));
+    });
+  };
+  window.addEventListener("mousemove", (e) => moveEyes(e.clientX, e.clientY), { passive: true });
+}
+
+/* ---------- hero character subtly turns toward the cursor ---------- */
+const heroScene = document.querySelector(".hero__scene svg");
+if (heroScene && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+  const hero = document.getElementById("hero");
+  hero.addEventListener("mousemove", (e) => {
+    const r = hero.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    heroScene.style.transform =
+      `perspective(900px) rotateY(${(x * 7).toFixed(2)}deg) rotateX(${(-y * 7).toFixed(2)}deg)`;
+  });
+  hero.addEventListener("mouseleave", () => {
+    heroScene.style.transform = "";
+  });
+}
+
 /* ---------- magnetic buttons ---------- */
 if (!reducedMotion && window.matchMedia("(pointer: fine)").matches) {
   document.querySelectorAll(".btn").forEach((btn) => {

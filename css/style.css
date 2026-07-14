@@ -487,7 +487,15 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
 }
 @keyframes blink { 50% { opacity: 0; } }
 .hero__scene { position: relative; }
-.hero__scene svg { width: 100%; height: auto; }
+.hero__scene svg { width: 100%; height: auto; transition: transform 0.25s ease-out; will-change: transform; }
+/* eyes glide toward the cursor */
+.eye-pupil { transition: cx 0.12s ease-out, cy 0.12s ease-out; }
+/* the idea keeps lighting up */
+.idea-bulb { animation: idea 3.4s ease-in-out infinite; }
+@keyframes idea {
+  0%, 55%, 100% { opacity: 0.45; transform: scale(0.92); }
+  62%, 92% { opacity: 1; transform: scale(1.12); }
+}
 .hero__note {
   margin: 40px auto 0;
   max-width: 620px;
@@ -1112,7 +1120,8 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .hero__wave-hand, .doodle__float, .typewriter__caret, .pill,
-  .pulse, .stamp__spin, .peek__card img, .project__media img { animation: none; }
+  .pulse, .stamp__spin, .peek__card img, .project__media img, .idea-bulb { animation: none; }
+  .eye-pupil { transition: none; }
   .hero__title .w > span { animation: none; transform: none; }
   html { scroll-behavior: auto; }
 }
