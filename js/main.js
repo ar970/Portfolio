@@ -154,18 +154,28 @@ if (twEl && !reducedMotion) {
   })();
 }
 
-/* ---------- mouse-parallax doodles ---------- */
+/* ---------- doodles drift with mouse AND scroll ---------- */
 const doodles = document.querySelectorAll(".doodle[data-depth], .pill-spot[data-depth]");
-if (doodles.length && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+if (doodles.length && !reducedMotion && window.matchMedia("(min-width: 861px)").matches) {
+  const fine = window.matchMedia("(pointer: fine)").matches;
   let mx = 0, my = 0;
-  window.addEventListener("mousemove", (e) => {
-    mx = e.clientX / window.innerWidth - 0.5;
-    my = e.clientY / window.innerHeight - 0.5;
-  });
+  if (fine) {
+    window.addEventListener("mousemove", (e) => {
+      mx = e.clientX / window.innerWidth - 0.5;
+      my = e.clientY / window.innerHeight - 0.5;
+    }, { passive: true });
+  }
   (function drift() {
+    const vh = window.innerHeight;
     doodles.forEach((d) => {
       const depth = parseFloat(d.dataset.depth || "3");
-      d.style.transform = `translate(${mx * depth * -9}px, ${my * depth * -9}px)`;
+      const r = d.getBoundingClientRect();
+      // scroll parallax: distance of this doodle's centre from viewport centre
+      const scrollShift = ((r.top + r.height / 2 - vh / 2) / vh) * depth * -10;
+      const mxs = fine ? mx * depth * -9 : 0;
+      const mys = fine ? my * depth * -9 : 0;
+      d.style.transform =
+        `translate(${mxs.toFixed(1)}px, ${(scrollShift + mys).toFixed(1)}px)`;
     });
     requestAnimationFrame(drift);
   })();
@@ -425,6 +435,14 @@ const observer = new IntersectionObserver(
   },
   { threshold: 0.12 }
 );
+/* stagger children of these groups so they cascade in */
+document.querySelectorAll(".journey__list, .stats__row").forEach((group) => {
+  [...group.children].forEach((child, i) => {
+    child.classList.add("reveal");
+    child.style.transitionDelay = (i * 0.09).toFixed(2) + "s";
+  });
+});
+
 document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
 
 /* ---------- marquees: duplicate content and auto-scroll ---------- */
