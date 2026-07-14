@@ -174,6 +174,24 @@ if (totop) {
   });
 }
 
+/* ---------- magnetic buttons ---------- */
+if (!reducedMotion && window.matchMedia("(pointer: fine)").matches) {
+  document.querySelectorAll(".btn").forEach((btn) => {
+    const strength = 0.4;
+    btn.addEventListener("mousemove", (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      btn.classList.add("is-magnetic");
+      btn.style.transform = `translate(${(x * strength).toFixed(1)}px, ${(y * strength).toFixed(1)}px)`;
+    });
+    btn.addEventListener("mouseleave", () => {
+      btn.style.transform = "";
+      setTimeout(() => btn.classList.remove("is-magnetic"), 220);
+    });
+  });
+}
+
 /* ---------- 3D tilt on project cards ---------- */
 if (!reducedMotion && window.matchMedia("(pointer: fine)").matches) {
   document.querySelectorAll(".project").forEach((card) => {
