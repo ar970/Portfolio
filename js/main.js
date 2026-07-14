@@ -174,6 +174,20 @@ if (totop) {
   });
 }
 
+/* ---------- whole project card is clickable ---------- */
+document.querySelectorAll(".project").forEach((card) => {
+  const link = card.querySelector(".btn[data-link], .btn[href]");
+  if (!link) return;
+  card.style.cursor = "pointer";
+  card.addEventListener("click", (e) => {
+    if (e.target.closest("a")) return; // let real links handle themselves
+    const href = link.getAttribute("href");
+    if (!href || href === "#") return;
+    if (link.target === "_blank") window.open(href, "_blank", "noopener");
+    else window.location.href = href;
+  });
+});
+
 /* ---------- magnetic buttons ---------- */
 if (!reducedMotion && window.matchMedia("(pointer: fine)").matches) {
   document.querySelectorAll(".btn").forEach((btn) => {
@@ -278,7 +292,7 @@ if (cursor && !reducedMotion && window.matchMedia("(pointer: fine)").matches) {
 
   const cursorLabel = document.getElementById("cursor-label");
   document.addEventListener("mouseover", (e) => {
-    const viewTarget = e.target.closest(".mini, .project__media, .peek__card");
+    const viewTarget = e.target.closest(".mini, .project, .peek__card");
     cursor.classList.toggle("is-view", !!viewTarget);
     if (cursorLabel) cursorLabel.textContent = viewTarget ? "VIEW ↗" : "";
     cursor.classList.toggle(

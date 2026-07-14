@@ -668,8 +668,21 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
   box-shadow: 6px 6px 0 rgba(42, 49, 50, 0.9);
   transform-style: preserve-3d;
   will-change: transform;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
-/* giant faint index numeral */
+/* clear clickable affordance on hover */
+.project:hover { box-shadow: 10px 12px 0 var(--orange); border-color: var(--orange); }
+.project:hover .project__title { color: var(--orange); }
+.project:hover .project__index { letter-spacing: 0.02em; }
+/* the "view" button fills in like a real CTA when you approach the card */
+.project:hover .btn--ghost {
+  background: var(--orange);
+  color: #fff;
+  border-color: var(--ink-2);
+}
+.project:hover .btn--ghost .btn__arrow { color: #fff; transform: translate(3px, -3px); }
+.project__title { transition: color 0.3s ease; }
+/* giant faint index numeral — brightens on hover */
 .project::after {
   content: attr(data-num);
   position: absolute;
@@ -681,7 +694,9 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
   line-height: 1;
   color: rgba(255, 89, 0, 0.10);
   pointer-events: none;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
+.project:hover::after { color: rgba(255, 89, 0, 0.22); transform: translateY(-4px) scale(1.04); }
 .project__media { overflow: hidden; position: relative; }
 .project__media img {
   transition: transform 0.6s ease;
