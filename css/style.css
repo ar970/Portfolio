@@ -66,7 +66,8 @@
   --ink: #2a3132;
   --ink-2: #1e1a1c;
   --muted: #5f6566;
-  --gray: #9ba1a5;
+  --gray: #9ba1a5;       /* decorative only — fails contrast on cream */
+  --gray-text: #62686c;  /* AA-compliant quiet text on light backgrounds */
   --orange: #ff5900;
   --blue: #cadcfc;
   --display: "Antonio", "Arial Narrow", sans-serif;
@@ -238,6 +239,20 @@ body.ready .hero__title .w > span { animation-play-state: running; }
 
 /* ---------- global craft details ---------- */
 ::selection { background: var(--orange); color: #fff; }
+a, button { touch-action: manipulation; }
+.skip-link {
+  position: fixed;
+  top: 10px; left: 10px;
+  z-index: 3000;
+  background: var(--ink);
+  color: var(--cream);
+  font-weight: 600;
+  padding: 0.7em 1.4em;
+  border-radius: 10px;
+  transform: translateY(-250%);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus-visible { transform: translateY(0); }
 :focus-visible { outline: 3px dashed var(--orange); outline-offset: 3px; border-radius: 4px; }
 section[id] { scroll-margin-top: calc(var(--nav-h) + 12px); }
 
@@ -449,10 +464,11 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
 }
 .hero__wave-hand {
   display: inline-block;
+  width: 68%;
   transform-origin: 70% 70%;
   animation: wave 2.4s ease-in-out infinite;
-  filter: grayscale(1) brightness(4);
 }
+.hero__wave-hand svg { width: 100%; height: auto; display: block; }
 @keyframes wave {
   0%, 60%, 100% { transform: rotate(0deg); }
   10%, 30% { transform: rotate(16deg); }
@@ -549,7 +565,7 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.22em;
-  color: var(--gray);
+  color: var(--gray-text);
   text-align: center;
   position: relative;
   z-index: 2;
@@ -678,7 +694,7 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.2em;
-  color: var(--muted);
+  color: var(--gray-text);
 }
 
 /* ---------- orange divider band ---------- */
@@ -981,7 +997,7 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.28em;
-  color: var(--gray);
+  color: var(--gray-text);
   text-transform: uppercase;
   margin: 34px 0 16px;
 }
@@ -1015,7 +1031,7 @@ body.has-cursor a, body.has-cursor button { cursor: none; }
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.28em;
-  color: var(--gray);
+  color: var(--gray-text);
   margin-bottom: 36px;
 }
 .marquee__track--brands { gap: 64px; }
